@@ -20,19 +20,22 @@ export default function AuthInputs() {
   const emailNotValid = submitted && !enteredEmail.includes('@');
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
-  return (
+  return <>
     <div id="auth-inputs">
       <div className="controls">
-        <p>
-          <label>Email</label>
+        <p className='paragraph'>
+          <label className={`label ${emailNotValid ? "invalid": ""}`}>Email</label>
           <input
             type="email"
+            // style={{
+            //   backgroundColor: emailNotValid ? '#fed2d2' : '#d1d5db'
+            // }}
             className={emailNotValid ? 'invalid' : undefined}
             onChange={(event) => handleInputChange('email', event.target.value)}
           />
         </p>
         <p>
-          <label>Password</label>
+          <label className={`label ${emailNotValid ? "invalid" : ""}`}>Password</label>
           <input
             type="password"
             className={passwordNotValid ? 'invalid' : undefined}
@@ -49,5 +52,5 @@ export default function AuthInputs() {
         <button className='button' onClick={handleLogin}>Sign In</button>
       </div>
     </div>
-  );
+  </>
 }
