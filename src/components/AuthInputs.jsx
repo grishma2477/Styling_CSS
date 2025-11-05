@@ -31,8 +31,8 @@ export default function AuthInputs() {
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return <>
-    <div id="auth-inputs">
-      <ControlContainer>
+    <div id="auth-inputs" className="w-full max-w-sm p-8 mx-auto rounded shadow-md bg-linear-to-b from-stone-700 to-stone-800">
+      <div className="flex-col gap-2 mb-6">
           <Input
           label="Email"
           invalid={emailNotValid}
@@ -52,7 +52,7 @@ export default function AuthInputs() {
               handleInputChange('password', event.target.value)
             }
           />
-      </ControlContainer>
+      </div>
       <div className="actions">
         <button type="button" className="text-button">
           Create a new account
